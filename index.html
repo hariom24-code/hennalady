@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>The Henna Lady | Luxury Mehndi Artist</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --sfc: #F5F5F5;
+      --gold: #8B6B2B;
+      --goldL: #C19A3B;
+      --grn: #2A5A30;
+      --crm: #1A1A1A;
+      --txt: #333333;
+      --h: 'Playfair Display', serif;
+      --b: 'Raleway', sans-serif
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--b);
+      background: var(--bg);
+      color: var(--txt);
+      overflow-x: hidden;
+      scroll-behavior: smooth
+    }
+
+    h1,
+    h2,
+    h3,
+    .hd {
+      font-family: var(--h);
+      color: var(--crm);
+      margin: 0 0 1rem
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: .3s;
+      cursor: pointer
+    }
+
+    .btn:hover,
+    .btn.fill {
+      background: var(--gold);
+      color: #FFF
+    }
+
+    .fu {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: .8s
+    }
+
+    .fu.v {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9;
+      transition: .4s;
+      box-sizing: border-box;
+      color: #FFF
+    }
+
+    nav.s {
+      background: var(--bg);
+      border-bottom: 1px solid var(--gold);
+      color: var(--txt)
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 14px;
+      text-transform: uppercase
+    }
+
+    #hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      position: relative;
+      overflow: hidden;
+      color: #FFF
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      z-index: 1
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out
+    }
+
+    .slide.act {
+      opacity: 1
+    }
+
+    .slider-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2
+    }
+
+    .sl-dots {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 12px
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: .3s
+    }
+
+    .dot.act {
+      background: var(--goldL)
+    }
+
+    .h-txt {
+      max-width: 600px;
+      z-index: 3;
+      position: relative
+    }
+
+    .h-txt h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1;
+      color: #FFF;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5)
+    }
+
+    .marq {
+      background: var(--goldL);
+      color: #FFF;
+      padding: 15px 0;
+      display: flex;
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: var(--h);
+      font-size: 1.2rem;
+      font-weight: 600
+    }
+
+    .marq div {
+      animation: m 20s linear infinite
+    }
+
+    @keyframes m {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    section {
+      padding: 100px 5%
+    }
+
+    .grid {
+      display: grid;
+      gap: 30px
+    }
+
+    .c3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+    }
+
+    #abt {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .a-frm {
+      width: 300px;
+      height: 300px;
+      margin: auto;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, #FFF, var(--sfc));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative
+    }
+
+    .a-frm h2 {
+      font-size: 5rem;
+      color: var(--goldL);
+      margin: 0
+    }
+
+    .srv-cd {
+      background: var(--bg);
+      padding: 30px;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+      transition: .3s
+    }
+
+    .srv-cd:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08)
+    }
+
+    .gal {
+      columns: 3 250px;
+      gap: 20px
+    }
+
+    .g-it {
+      background: var(--sfc);
+      break-inside: avoid;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .g-it::before {
+      content: "";
+      display: block;
+      padding-top: 100%
+    }
+
+    .g-it.t::before {
+      padding-top: 140%
+    }
+
+    .g-it svg {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      opacity: .1;
+      stroke: var(--gold)
+    }
+
+    .g-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: .3s;
+      font-family: var(--h);
+      color: var(--gold)
+    }
+
+    .g-it:hover .g-hover {
+      opacity: 1
+    }
+
+    .tst-grid {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding-bottom: 20px
+    }
+
+    .tst-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gold);
+      font-size: 1.5rem;
+      z-index: 2;
+      transition: .3s;
+    }
+
+    .tst-arrow:hover {
+      color: var(--txt);
+    }
+
+    .tst-arrow.left { left: 0px; }
+    .tst-arrow.right { right: 0px; }
+
+    .tst-cd {
+      width: 400px;
+      max-width: 85vw;
+      flex-shrink: 0;
+      white-space: normal;
+      background: var(--sfc);
+      padding: 30px;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02)
+    }
+
+    .tst-cd svg {
+      width: 40px;
+      color: var(--gold);
+      opacity: .2;
+      margin-bottom: 15px
+    }
+
+    .stars {
+      color: var(--gold);
+      margin-top: 10px
+    }
+
+    #ctc {
+      text-align: center;
+      position: relative
+    }
+
+    #ctc a {
+      display: block;
+      margin: 15px 0;
+      font-size: 1.2rem
+    }
+
+    foot {
+      text-align: center;
+      padding: 50px 5%;
+      border-top: 1px solid rgba(0, 0, 0, 0.1)
+    }
+
+    foot a {
+      margin: 0 10px
+    }
+
+    .fl {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 0 15px rgba(37, 211, 102, .4)
+    }
+
+    .fl svg {
+      width: 35px;
+      fill: #fff
+    }
+
+    .fl-ig {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 0 15px rgba(214, 36, 159, .4)
+    }
+
+    .fl-ig svg {
+      width: 30px;
+      fill: #fff
+    }
+
+    .top-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      color: #FFF;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+      z-index: 99;
+      z-index: 99;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1)
+    }
+
+    .top-btn.v {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .bk-frm {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      background: var(--bg);
+      padding: 30px;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-top: 3px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+      text-align: left;
+    }
+    
+    .bk-frm label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--txt);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .bk-frm input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: var(--b);
+      font-size: 1rem;
+      background: var(--sfc);
+      transition: 0.3s;
+    }
+    
+    .bk-frm input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(193, 154, 59, 0.2);
+    }
+
+    /* New Sections CSS */
+    #why { background: var(--bg); color: var(--txt); padding: 100px 5%; }
+    #why h2 { color: var(--crm); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+    .why-stg { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 50px auto 0; max-width: 1100px; }
+    .why-cd { flex: 1 1 280px; max-width: 340px; text-align: center; padding: 40px 20px; background: var(--sfc); border-radius: 4px; border-top: 3px solid var(--gold); box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: all 0.4s ease; }
+    .why-cd:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--bg); }
+    .why-cd svg { color: var(--gold); width: 50px; height: 50px; margin-bottom: 20px; transition: 0.4s; }
+    .why-cd:hover svg { transform: scale(1.1); color: var(--goldL); }
+    .why-cd h3 { color: var(--crm); font-size: 1.2rem; margin: 0; font-family: var(--h); letter-spacing: 1px; }
+
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .faq-btn { width: 100%; text-align: left; background: none; border: none; padding: 25px 0; font-size: 1.2rem; font-family: var(--h); color: var(--crm); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: .3s; }
+    .faq-btn:hover { color: var(--gold); }
+    .faq-btn::after { content: '+'; font-size: 1.8rem; color: var(--gold); transition: transform 0.3s; font-weight: 300; }
+    .faq-btn.active::after { transform: rotate(45deg); }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out; opacity: 0; padding: 0; }
+    .faq-content.show { opacity: 1; padding-bottom: 25px; }
+    .faq-content p { margin: 0; line-height: 1.6; color: var(--txt); }
+
+    .loc-banner { background: var(--crm); color: #FFF; padding: 80px 5%; margin: 60px 0; text-align: center; position: relative; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+    .loc-banner::before { content: ""; position: absolute; inset: 0; background: url('images/slider1.jpeg') center/cover; opacity: 0.1; }
+
+    /* --- ENHANCED ANIMATIONS --- */
+    @media (prefers-reduced-motion: no-preference) {
+      .cinematic-up { opacity: 0; transform: translateY(20px); animation: hSlideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      .cinematic-fade { opacity: 0; animation: hFade 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      .cinematic-left { opacity: 0; transform: translateX(-40px); animation: hSlideLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      @keyframes hSlideUp { to { opacity: 1; transform: translateY(0); } }
+      @keyframes hFade { to { opacity: 1; } }
+      @keyframes hSlideLeft { to { opacity: 1; transform: translateX(0); } }
+      
+      @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
+      .slide.act { opacity: 1; animation: kenBurns 3s ease-out forwards; }
+      
+      .reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
+      .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s, transform 0.7s; }
+      .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s, transform 0.7s; }
+      .revealed { opacity: 1 !important; transform: none !important; }
+
+      @keyframes navIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+      nav { animation: navIn 0.5s ease-out forwards; }
+      nav.s { box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: 0.4s box-shadow, 0.4s background; }
+      
+      .nav-lks a { position: relative; }
+      .nav-lks a::after {
+        content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+        background: var(--gold); transition: width 0.3s ease;
+      }
+      .nav-lks a:hover::after { width: 100%; }
+      
+      @keyframes shimmerGlow { 0%, 100% { opacity: 0.6; text-shadow: none; } 50% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.8); } }
+      .marq-star { display: inline-block; animation: shimmerGlow 2s infinite ease-in-out; }
+      
+      @keyframes pulseSubtle { 50% { transform: scale(1.1); } }
+      .pulse-hit { animation: pulseSubtle 0.6s ease-out; }
+      
+      .a-frm::before {
+        content: ''; position: absolute; inset: -15px; border: 2px dashed var(--gold);
+        border-radius: 50%; animation: spinDash 12s linear infinite; pointer-events:none;
+      }
+      @keyframes spinDash { to { transform: rotate(360deg); } }
+      .reveal-spring { transform: scale(0.8); opacity: 0; transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s; }
+      .reveal-spring.revealed { transform: scale(1); opacity: 1; }
+      
+      .srv-cd { border-top: 0; border-left: 3px solid transparent; position: relative; overflow: hidden; }
+      .srv-cd::after {
+        content:''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(193,154,59,0.1), transparent); transition: 0s; pointer-events:none;
+      }
+      .srv-cd:hover { border-left-color: var(--gold); border-top-color: transparent; }
+      .srv-cd:hover::after { left: 200%; transition: left 0.8s ease-in-out; }
+      @keyframes bounceRotate { 50% { transform: rotate(15deg) scale(1.1); } }
+      .srv-cd:hover h3 span.emoji { display: inline-block; animation: bounceRotate 0.4s ease-in-out; }
+      
+      .g-hover { opacity: 0; transform: translateY(100%); transition: transform 0.35s ease, opacity 0.35s ease; }
+      .g-it:hover .g-hover { opacity: 1; transform: translateY(0); }
+      .g-hover > div { opacity: 0; transition: opacity 0.2s ease 0.1s; }
+      .g-it:hover .g-hover > div { opacity: 1; }
+      
+      .tst-grid { scroll-behavior: smooth; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+      .tst-grid::-webkit-scrollbar { display: none; }
+      .tst-cd { scroll-snap-align: start; }
+      .star-anim { display: inline-block; opacity: 0; transform: translateY(-10px); }
+      .revealed .star-anim { opacity: 1; transform: translateY(0); transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      
+      @keyframes iconFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+      #ctc a svg { display: inline-block; animation: iconFloat 2s infinite ease-in-out; transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      #ctc a:hover svg { transform: scale(1.3) !important; animation: none; }
+      @keyframes sweepSweep { 0% { background-position: 200% auto; } 100% { background-position: -200% auto; } }
+      #ctc .btn.fill { background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto; animation: sweepSweep 4s linear infinite; }
+      
+      .fl::before, .fl-ig::before {
+        content:''; position: absolute; inset:0; border-radius: 50%; opacity: 0;
+        animation: sonarPing 2s infinite ease-out; z-index: -1; pointer-events:none;
+      }
+      .fl::before { background: rgba(37,211,102,0.4); }
+      .fl-ig::before { background: rgba(214,36,159,0.4); }
+      @keyframes sonarPing { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
+      .fl, .fl-ig { transition: transform 0.2s; }
+      .fl:hover, .fl-ig:hover { transform: scale(1.1); }
+      
+      .top-btn { transition: opacity 0.3s, visibility 0.3s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      .top-btn:hover { transform: scale(1.15); }
+      .top-btn.spin { transform: rotate(360deg) scale(1); transition: transform 0.5s; }
+      
+      .custom-cursor {
+        position: fixed; top: 0; left: 0; width: 12px; height: 12px;
+        background: var(--goldL); border-radius: 50%; pointer-events: none;
+        z-index: 9999; transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background 0.2s, border 0.2s;
+      }
+      .custom-cursor.hollow { width: 30px; height: 30px; background: transparent; border: 2px solid var(--goldL); }
+    }
+    @media (hover: none) and (pointer: coarse) { .custom-cursor { display: none !important; } }
+
+    /* Mobile Menu & Responsiveness */
+    .menu-btn { display: none; background: none; border: none; color: inherit; font-size: 1.8rem; cursor: pointer; padding: 0; line-height: 1; }
+    
+    @media(max-width: 900px) {
+      .c3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      #abt { gap: 30px; }
+    }
+
+    @media(max-width: 800px) {
+      #abt { grid-template-columns: 1fr; text-align: center; }
+      #abt > div > div[style*="flex"] { justify-content: center; flex-wrap: wrap; gap: 20px; }
+      .a-frm { width: 100%; max-width: 300px; height: auto; aspect-ratio: 1; margin: 0 auto; }
+      .h-txt { text-align: center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+      .h-txt h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-top: 20px; }
+      .h-txt h2 { font-size: 1.2rem; }
+      .h-txt p { margin: 0 auto 30px; }
+      .h-txt .btn { margin: 0 5px 15px !important; }
+      .nav-lks {
+        position: fixed; top: 0; left: 100%; width: 100%; height: 100vh;
+        background: var(--bg); display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 2rem;
+        transition: 0.3s ease-in-out; color: var(--txt);
+      }
+      .nav-lks.open { left: 0; }
+      .menu-btn { display: block; }
+      #desktop-book-btn { display: none; }
+      #mobile-book-btn { display: inline-block !important; margin-top: 10px; }
+      .gal { columns: 2 150px; }
+      section { padding: 60px 4%; }
+      .tst-arrow { width: 35px; height: 35px; font-size: 0.9rem; } /* Adjusted for touch without hiding */
+    }
+
+    @media(max-width: 480px) {
+      .c3 { grid-template-columns: 1fr; }
+      .gal { columns: 1 100%; }
+      .a-frm { max-width: 250px; }
+      .h-txt { width: 100%; padding: 0 10px; box-sizing: border-box; }
+      .h-txt h1 { font-size: 2.2rem; }
+      .h-txt .btn { display: block; width: 100%; margin: 0 0 15px 0 !important; box-sizing: border-box; }
+      .marq { font-size: 1rem; padding: 10px 0; }
+      .fl, .fl-ig { width: 50px; height: 50px; }
+      .fl svg { width: 25px; height: 25px; }
+      .fl-ig svg { width: 22px; height: 22px; }
+      .fl-ig { bottom: 85px; }
+      foot div[style*="margin:20px 0"] { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+      foot div[style*="margin:20px 0"] a { margin: 0; }
+      .bk-frm { padding: 20px; }
+      .srv-cd { padding: 20px; }
+      .tst-cd { width: 85vw; padding: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="nav">
+    <div class="hd" style="font-size:1.5rem;margin:0;color:inherit;z-index:100;position:relative">The Henna Lady <svg width="15" viewBox="0 0 24 24"
+        fill="var(--grn)" style="vertical-align:middle">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+      </svg></div>
+    <div class="nav-lks" id="nav-lks">
+      <a href="#hero" onclick="toggleMenu()">Home</a>
+      <a href="#abt" onclick="toggleMenu()">About</a>
+      <a href="#srv" onclick="toggleMenu()">Services</a>
+      <a href="#gal" onclick="toggleMenu()">Gallery</a>
+      <a href="#ctc" onclick="toggleMenu()">Contact</a>
+      <a href="#ctc" class="btn" style="margin-top:20px;display:none" id="mobile-book-btn" onclick="toggleMenu()">Book Now</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:15px;z-index:100;position:relative">
+      <a href="#ctc" class="btn" id="desktop-book-btn">Book Now</a>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="slider">
+      <div class="slide act"
+        style="background-image:url('images/slider1.jpeg')">
+      </div>
+      <div class="slide"
+        style="background-image:url('images/slider2.jpeg')">
+      </div>
+      <div class="slide"
+        style="background-image:url('images/slider3.jpeg')">
+      </div>
+       <div class="slide"
+        style="background-image:url('images/slider4.jpeg')">
+      </div>
+       <div class="slide"
+        style="background-image:url('images/slider5.jpeg')">
+      </div>
+       <div class="slide"
+        style="background-image:url('images/slider6.jpeg')">
+      </div>
+    </div>
+    <div class="slider-overlay"></div>
+    <div class="h-txt fu animate">
+      <div style="color:var(--goldL);margin-bottom:10px;text-shadow:0 2px 4px rgba(0,0,0,0.5)">✦ Henna Artist & Designer
+      </div>
+      <h1>The Henna Lady</h1>
+      <h2
+        style="font-size:1.5rem;font-family:var(--b);font-weight:400;color:#FFF;text-shadow:0 2px 4px rgba(0,0,0,0.5)">
+        Where Every Design Tells a Story</h2>
+      <p style="margin-bottom:30px;max-width:500px;color:#EEE;text-shadow:0 2px 4px rgba(0,0,0,0.5)">Specializing in
+        Bridal, Birthday, Barmitzvah, Baby Shower, and Festive Mehndi — crafted with love for every occasion.</p>
+      <a href="#ctc" class="btn fill"
+        style="margin-right:15px;box-shadow:0 5px 15px rgba(0,0,0,0.3)">Book Now</a>
+      <a href="#gal" class="btn" style="color:#FFF;border-color:#FFF;box-shadow:0 5px 15px rgba(0,0,0,0.3)">View My
+        Work</a>
+    </div>
+    <div class="sl-dots">
+      <div class="dot act" onclick="jumpSlide(0)"></div>
+      <div class="dot" onclick="jumpSlide(1)"></div>
+      <div class="dot" onclick="jumpSlide(2)"></div>
+      <div class="dot" onclick="jumpSlide(3)"></div>
+      <div class="dot" onclick="jumpSlide(4)"></div>
+      <div class="dot" onclick="jumpSlide(5)"></div>
+    </div>
+  </section>
+
+  <div class="marq">
+    <div>✦ Birthday Parties &nbsp;&nbsp; ✦ Bridal Henna &nbsp;&nbsp; ✦ Mitzvahs &nbsp;&nbsp; ✦ Sweet 16 &nbsp;&nbsp; ✦ Quinceañeras &nbsp;&nbsp; ✦ Corporate Events &nbsp;&nbsp; ✦ Destination Events &nbsp;&nbsp; ✦ Yoga Retreats &nbsp;&nbsp; ✦ Graduation Parties &nbsp;&nbsp; ✦ Backyard Parties &nbsp;&nbsp; ✦ Girls’ Night &nbsp;&nbsp; ✦ Holiday Events &nbsp;&nbsp; ✦ Fundraisers &nbsp;&nbsp; ✦ Teacher Appreciation &nbsp;&nbsp; ✦ Henna Pampering Sessions &nbsp;&nbsp; ✦ Custom Bridal Designs &nbsp;&nbsp;</div>
+  </div>
+
+  <section id="abt">
+    <div class="a-frm fu animate" style="background-image: url('images/Artist.jpeg'); background-size: cover; background-position: top center; border: 2px solid var(--gold);">
+    </div>
+    <div class="fu animate">
+      <div style="color:var(--goldL);font-weight:600">About the Artist</div>
+      <h2>Meet Rozmin Haji</h2>
+      <p>With years of experience in henna artistry, I specialize in creating detailed, long-lasting designs for brides and events.
+
+Clients trust me not just for beautiful designs, but for a smooth, stress-free experience — whether it’s a wedding, private session, or large event.
+
+From timely completion to personalized designs, every session is handled with care, precision, and attention to detail.</p>
+      <div style="display:flex;gap:30px;margin-top:30px;font-family:var(--h);font-size:1.5rem;color:var(--gold)">
+        <div><span class="ctr" data-t="549">200</span>+ <br><span
+            style="font-size:.9rem;font-family:var(--b);color:var(--txt);font-weight:600">⭐Clients Served</span></div>
+        <div><span class="ctr" data-t="1275">1276</span>+ <br><span                                                                 
+            style="font-size:.9rem;font-family:var(--b);color:var(--txt);font-weight:600">                                  Happy Followers</span></div>
+        <div><span class="ctr" data-t="100">100</span>% <br><span
+            style="font-size:.9rem;font-family:var(--b);color:var(--txt);font-weight:600">🌿Natural Henna Used</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="srv" style="background:var(--sfc)">
+    <h2 align="center" class="fu animate">Our Services</h2>
+    <div class="grid c3 fu animate" style="margin-top:40px">
+      
+      <div class="srv-cd" style="display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; margin-bottom: 15px;">🎉 Parties & Events</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">We specialize in Mitzvahs, Sweet 16s, Quinceañeras, Yoga Retreats, Corporate Events, Destination Events, Birthdays, Graduations, Backyard Parties, Weddings, Girls' Night, Holidays, Fundraisers, and Teachers Appreciation.</p>
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--gold); margin-bottom: 20px;">✦ Perfect for groups of all sizes</p>
+        <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05);">
+          <p style="font-size: 0.9rem; margin-bottom: 12px; color: var(--txt);">Individual appointments available at our home-based studio.</p>
+          <a href="#ctc" class="btn fill" style="display:block; text-align:center; padding:12px; font-size:0.85rem; font-weight:700; width:100%; box-sizing:border-box; border:none; border-radius:4px; animation: sweepSweep 3s linear infinite; background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto;">BOOK NOW — LIMITED SLOTS!</a>
+        </div>
+      </div>
+
+      <div class="srv-cd" style="display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; margin-bottom: 15px;">💍 Bridal Henna</h3>
+        <p style="font-size: 0.95rem; color: var(--txt); margin-bottom: 20px; line-height: 1.6;">Your special day deserves a true luxury experience with flawless custom artistry.</p>
+        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+          <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Fully custom designs</li>
+          <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Pre-wedding consultation included</li>
+          <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Premium luxury experience</li>
+        </ul>
+        <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05);">
+          <a href="#ctc" class="btn fill" style="display:block; text-align:center; padding:12px; font-size:0.85rem; font-weight:700; width:100%; box-sizing:border-box; border:none; border-radius:4px; animation: sweepSweep 3s linear infinite; background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto;">BOOK NOW — SECURE DATE!</a>
+        </div>
+      </div>
+
+      <div style="position: relative; height: 100%;">
+        <span style="position: absolute; top: -12px; right: 20px; background: var(--gold); color: #FFF; padding: 5px 15px; font-size: 0.75rem; font-family: var(--h); text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(193, 154, 59, 0.4); z-index: 10;">Signature Offer</span>
+        <div class="srv-cd" style="display: flex; flex-direction: column; position: relative; height: 100%; box-sizing: border-box; margin: 0;">
+          <h3 style="font-size: 1.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; margin-bottom: 15px;">🌿 Henna Pampering</h3>
+          <p style="font-size: 0.95rem; color: var(--txt); margin-bottom: 20px; line-height: 1.6;">Experience the ultimate blend of luxury and healing. A deeply relaxing retreat tailored for your well-being.</p>
+          <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+            <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Scalp, neck & shoulder massage + henna</li>
+            <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Aromatherapy with essential oils</li>
+            <li style="margin-bottom: 12px; font-size: 1rem;"><span style="color:var(--gold)">✦</span> Women-only safe space</li>
+          </ul>
+          <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05);">
+            <a href="#ctc" class="btn fill" style="display:block; text-align:center; padding:12px; font-size:0.85rem; font-weight:700; width:100%; box-sizing:border-box; border:none; border-radius:4px; animation: sweepSweep 3s linear infinite; background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto;">CLAIM LIMITED SESSION!</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="why">
+    <div style="position:relative; z-index:2">
+      <h2 align="center" class="reveal-up">Why Choose Us</h2>
+      <div align="center" style="color:var(--txt); max-width:600px; margin:0 auto; font-family:var(--b)" class="reveal-up">Experience the gold standard of henna artistry designed around your comfort, safety, and ultimate satisfaction.</div>
+      <div class="why-stg reveal-up">
+        <div class="why-cd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <h3>20+ Years Experience</h3>
+        </div>
+        <div class="why-cd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66l.95-2.3c.48.17 1.04.3 1.64.3 4.97 0 9.77-2.73 12.87-8C21.84 10.87 22 9.41 22 8c0-1.1-.9-2-2-2h-3zm-2.07 8.35C12.78 19.38 9.38 20 6.64 20c-.57 0-1.13-.06-1.66-.17l1.7-4.11C8.28 12.18 11.75 9 17 8c.28 0 .54.04.81.07-1.39 3.65-3.34 6.78-2.88 8.28z"/></svg>
+          <h3>Natural Products</h3>
+        </div>
+        <div class="why-cd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          <h3>Clean, Precise Designs</h3>
+        </div>
+        <div class="why-cd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <h3>Calming Experience</h3>
+        </div>
+        <div class="why-cd">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <h3>Trusted by Hundreds</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gal">
+    <h2 align="center" class="fu animate">Our Work</h2>
+    <div class="gal fu animate" style="margin-top:40px" id="g-c"></div>
+    <div align="center" style="margin-top:40px" class="fu animate"><a href="https://www.instagram.com/the_henna.lady"
+        target="_blank" class="btn">Follow on Instagram</a></div>
+  </section>
+
+  <section id="tst">
+    <h2 align="center" class="fu animate">What Our Clients Say</h2>
+    <div style="position:relative; margin-top:40px">
+      <div class="tst-arrow left" onclick="document.querySelector('.tst-grid').scrollBy({left: -330, behavior:'smooth'})">❮</div>
+      <div class="tst-arrow right" onclick="document.querySelector('.tst-grid').scrollBy({left: 330, behavior:'smooth'})">❯</div>
+      <div class="tst-grid fu animate">
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin was such a joy to work with. She was warm, kind, and incredibly talented, and I really appreciated getting to hear about her history with henna and how long she’s been practicing the art since she was a teen. I was able to bring her a design idea, and she created exactly what I was hoping for with so much care and precision. She was very thoughtful about sealing the henna properly and clearly knows what she’s doing. Communication was easy from start to finish, the final result is beautiful, and I’ll definitely be going back to her for my future henna. Highly recommend."
+        </p><strong>— Brittney Moses</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin added such a beautiful touch to my daughter’s party.
+She was so professional, well organized, arrived on time and of course very talented.
+All the girls were very happy and proud of the beautiful tattoos.
+Definitely recommend her"
+        </p><strong>— Galit Katz.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin did such an amazing job on my henna, I’m literally obsessed 😍 She was so sweet, patient, and made the whole experience feel really comfortable. Her attention to detail is insane, every line came out so clean and precise. She used jagua gel which gave the design such a rich, dark stain and it looks even better as it develops. You can tell she really cares about her work. I’ve already gotten so many compliments — highly recommend her!!"</p>
+        <strong>— sadiba islam.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin did very nice work with my henna I love it she's very creative and patient and attentive I would definitely recommend her to everyone I know 😊 …"</p>
+        <strong>— Kawtar Mezouaq.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"She did full bridal henna for my daughter-in-law and did such a wonderful job. Was really quick, and brought great energy."</p>
+        <strong>— Khairunnisa Dhamani.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:var(--sfc)">
+    <h2 align="center" class="fu animate">Frequently Asked Questions</h2>
+    <div class="faq-container fu animate" style="margin-top:40px">
+      <div class="faq-item">
+        <button class="faq-btn">Is your henna natural and safe?</button>
+        <div class="faq-content">
+          <p>Yes, I use 100% natural, chemical-free henna paste made with organic ingredients. No black henna, no harmful additives — safe for all skin types.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">How much do you charge?</button>
+        <div class="faq-content">
+          <p>Pricing depends on the design and occasion.<br><br>
+          <span style="color:var(--gold)">✨</span> Simple designs start from $20<br>
+          <span style="color:var(--gold)">✨</span> Bridal & event packages available<br><br>
+          Feel free to message me for a quick quote — I’ll guide you based on your requirement.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">How can I book an appointment?</button>
+        <div class="faq-content">
+          <p>Booking is simple — just message me on WhatsApp or Instagram, and I’ll confirm your slot quickly.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Do you travel to my location?</button>
+        <div class="faq-content">
+          <p>Yes, I offer mobile henna services across Southern California (Los Angeles, West Hills & surrounding areas). A travel fee may apply depending on distance.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Do you take last-minute bookings?</button>
+        <div class="faq-content">
+          <p>Yes, I do take last-minute bookings if slots are available. For weddings/events, I recommend booking in advance to secure your date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="loc" class="loc-banner fu animate">
+    <div style="position:relative;z-index:2">
+      <h2 style="color:var(--goldL);margin-bottom:10px;font-size:2.5rem;font-family:var(--h);margin-top:0">Location & Service Area</h2>
+      <p style="font-size:1.2rem;max-width:600px;margin:10px auto;font-family:var(--h);font-style:italic">“Serving Los Angeles, West Hills & surrounding areas”</p>
+      <div style="display:inline-block;border:1px solid var(--gold);padding:10px 20px;font-family:var(--b);color:#FFF;margin-top:20px;text-transform:uppercase;letter-spacing:1px;font-size:0.9rem">✦ Travel available for events</div>
+    </div>
+  </div>
+
+  <section id="ctc">
+    <div class="fu animate">
+      <h2>Book Your Appointment</h2>
+      <p style="font-size:1.2rem;color:var(--gold);margin-bottom:30px;font-weight:600">Ready to wear art? Let's create
+        something beautiful together.</p>
+
+      <form action="https://formspree.io/f/maqljnne" method="POST" class="bk-frm">
+        <label>Name *</label>
+        <input type="text" name="Name" required>
+        
+        <label>Email *</label>
+        <input type="email" name="Email" required>
+        
+        <label>Phone number</label>
+        <input type="tel" name="Phone">
+        
+        <label>Booking Date *</label>
+        <input type="date" name="Booking_Date" required>
+        
+        <label>Booking Time *</label>
+        <input type="time" name="Booking_Time" required>
+        
+        <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(193, 154, 59, 0.05); border-radius: 8px; border: 1px dashed var(--gold);">
+          <h3 style="color: var(--crm); font-size: 1.2rem; margin-bottom: 10px; font-family: var(--h);">Deposit Required</h3>
+          <p style="font-size: 0.95rem; color: var(--txt); margin-bottom: 15px;">Please secure your booking with a $20 advance deposit via Zelle.</p>
+          <img src="images/QR.jpeg" alt="Zelle QR Code for $20 deposit" style="width: 200px; height: auto; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 10px;">
+          <p style="font-size: 0.9rem; color: var(--gold); font-weight: 600; margin: 0; font-family: var(--b);">ALNAZIR HAJIMOHAMED</p>
+          <p style="font-size: 0.85rem; color: var(--txt); margin: 5px 0 0; font-family: var(--b);">at 678-677-3039</p>
+        </div>
+        
+        <button type="submit" class="btn fill" style="width:100%">Submit Booking Request</button>
+      </form>
+
+      <div style="font-family:var(--h);font-size:1.2rem;margin-bottom:20px;color:var(--crm)">Or Contact Us Directly:</div>
+      <div
+        style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;text-align:left;margin-bottom:20px">
+        <a href="https://wa.me/16786773039" style="color:var(--txt);display:flex;align-items:center;gap:8px;margin:0;background:var(--sfc);padding:10px 20px;border-radius:30px">
+          <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+            <path
+              d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+          </svg>
+          +1(678)6773039
+        </a>
+        <a href="mailto:Rozminh@hotmail.com" style="color:var(--txt);display:flex;align-items:center;gap:8px;margin:0;background:var(--sfc);padding:10px 20px;border-radius:30px">
+          <svg viewBox="0 0 512 512" width="20" height="20" fill="currentColor">
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+          </svg>
+          Rozminh@hotmail.com
+        </a>
+        <a href="https://www.instagram.com/the_henna.lady" target="_blank"
+          style="color:var(--txt);display:flex;align-items:center;gap:8px;margin:0;background:var(--sfc);padding:10px 20px;border-radius:30px">
+          <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+          </svg>
+          @the_henna.lady
+        </a>
+        <a href="https://maps.app.goo.gl/zbnG2cHfaSexA1gJ7?g_st=aw" target="_blank"
+          style="color:var(--txt);display:flex;align-items:center;gap:8px;margin:0;background:var(--sfc);padding:10px 20px;border-radius:30px">
+          <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
+            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+          </svg>
+          Location
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <foot>
+    <div class="hd" style="font-size:1.5rem;color:var(--crm)">The Henna Lady</div>
+    <p>"Keep Calm and Put Your Mehendi On!"</p>
+    <div style="margin:20px 0"><a href="#hero">Home</a><a href="#abt">About</a><a href="#srv">Services</a><a
+        href="#gal">Gallery</a><a href="#ctc">Contact</a></div>
+    <p style="font-size:.8rem;opacity:.5;margin-bottom:5px;">© 2026 The Henna Lady · Rozmin Haji · All Rights Reserved</p>
+    <p style="font-size:.8rem;opacity:.8;margin:0;">Designed by <a href="https://www.instagram.com/code.inbrain/" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">codeinbrain</a></p>
+  </foot>
+
+  <button class="top-btn" id="tpb" onclick="window.scrollTo(0,0)">↑</button>
+
+  <a href="https://wa.me/16786773039" class="fl" target="_blank"><svg viewBox="0 0 24 24" width="35" height="35"
+      fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg></a>
+
+  <a href="https://www.instagram.com/the_henna.lady?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" class="fl-ig" target="_blank"><svg viewBox="0 0 448 512" width="30" height="30"
+      fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+    </svg></a>
+
+  <script>
+    // DOM Preparation & Staggering
+    const h1 = document.querySelector('.h-txt h1');
+    if (h1) h1.innerHTML = h1.textContent.split(' ').map((w, i) => `<span class="char-anim" style="animation-delay:${0.5 + i*0.1}s">${w}</span>`).join(' ');
+    document.querySelector('.h-txt > div:first-child')?.classList.add('cinematic-up');
+    document.querySelector('.h-txt h2')?.classList.add('cinematic-up');
+    document.querySelector('.h-txt p')?.classList.add('cinematic-fade');
+    document.querySelectorAll('.h-txt .btn').forEach((b, i) => { b.classList.add('cinematic-left'); b.style.animationDelay = (1.2 + i*0.2) + 's'; });
+
+    const marq = document.querySelector('.marq div');
+    if (marq) {
+      marq.innerHTML = marq.innerHTML.replace(/✦/g, '<span class="marq-star">✦</span>');
+      document.querySelectorAll('.marq-star').forEach((s, i) => s.style.animationDelay = (i * 0.2) + 's');
+    }
+
+    document.querySelectorAll('.srv-cd h3').forEach(h3 => {
+      h3.innerHTML = h3.innerHTML.replace(/^([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])+ *(?:[\uFE0F])?/g, m => `<span class="emoji">${m}</span>`);
+    });
+
+    document.querySelectorAll('section > h2.fu').forEach(e => { e.classList.replace('fu', 'reveal-up'); });
+    document.querySelector('#abt .a-frm')?.classList.replace('fu', 'reveal-spring');
+    document.querySelector('#abt > div:not(.a-frm)')?.classList.replace('fu', 'reveal-up');
+    document.querySelector('#ctc .fu')?.classList.replace('fu', 'reveal-up');
+    document.querySelector('foot')?.classList.add('reveal-up');
+    
+    document.querySelector('#why .why-stg')?.classList.replace('fu', 'reveal-up');
+    document.querySelector('.faq-container')?.classList.replace('fu', 'reveal-up');
+    document.querySelector('#loc')?.classList.replace('fu', 'reveal-up');
+    
+    // Remove old helper classes from container grids so they don't stay hidden forever
+    document.querySelectorAll('.grid, .gal, .tst-grid').forEach(e => e.classList.remove('fu', 'animate'));
+    
+    document.querySelectorAll('.tst-cd .stars').forEach(s => {
+      s.innerHTML = '★'.repeat(5).split('').map((st,i) => `<span class="star-anim" style="transition-delay:${i*0.08}s">${st}</span>`).join('');
+    });
+
+    document.querySelectorAll('#ctc svg').forEach((s, i) => s.style.animationDelay = (i * 0.4) + 's');
+
+    // Scroll Observer
+    const ob = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed', 'v');
+          
+          if (entry.target.id === 'abt' && !entry.target.dataset.d) {
+            entry.target.dataset.d = 1;
+            document.querySelectorAll('.ctr').forEach(c => {
+              const target = +c.dataset.t;
+              let current = 0;
+              const updateCounter = () => {
+                const diff = target - current;
+                current += diff * 0.05;
+                if (diff < 1) { c.innerText = target; c.classList.add('pulse-hit'); } 
+                else { c.innerText = Math.ceil(current); requestAnimationFrame(updateCounter); }
+              };
+              requestAnimationFrame(updateCounter);
+            });
+            document.querySelector('.a-frm h2').style.opacity = '1';
+          }
+          
+          if (entry.target.id === 'srv') {
+            entry.target.querySelectorAll('.srv-cd').forEach((c, i) => {
+              c.classList.add('reveal-up'); c.style.transitionDelay = (i * 0.1) + 's';
+              setTimeout(() => c.classList.add('revealed'), 50);
+            });
+          }
+          if (entry.target.classList.contains('tst-grid') || entry.target.id === 'tst') {
+            // Check within itself or children
+            const tstCards = entry.target.classList.contains('tst-grid') ? entry.target.querySelectorAll('.tst-cd') : entry.target.querySelectorAll('.tst-grid .tst-cd');
+            tstCards.forEach((c, i) => {
+              c.classList.add('reveal-right'); c.style.transitionDelay = (i * 0.15) + 's';
+              setTimeout(() => c.classList.add('revealed'), 50);
+            });
+          }
+          if (entry.target.classList.contains('gal') || entry.target.id === 'gal') {
+             const gIts = entry.target.classList.contains('gal') ? entry.target.querySelectorAll('.g-it') : entry.target.querySelectorAll('.gal .g-it');
+             gIts.forEach((c, i) => {
+              c.classList.add('reveal-scale'); c.style.transitionDelay = (i * 0.08) + 's';
+              setTimeout(() => c.classList.add('revealed'), 50);
+            });
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-up, .reveal-spring, .reveal-fade, #srv, .tst-grid, .gal, foot').forEach(e => ob.observe(e));
+    
+    // UI Interactions
+    const nav = document.getElementById('nav');
+    const tpb = document.getElementById('tpb');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) nav.classList.add('s'); else nav.classList.remove('s');
+      if (window.scrollY > 300) tpb.classList.add('v'); else tpb.classList.remove('v');
+    });
+
+    tpb.addEventListener('click', () => {
+      tpb.classList.add('spin');
+      setTimeout(() => tpb.classList.remove('spin'), 500);
+    });
+
+    // Gallery
+    const gc = document.getElementById('g-c');
+    const cols = ['#e8eedf', '#f0ebd8', '#f4ece6', '#e6e6e6'];
+    const galleryImages = [
+      "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(4).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(2).jpeg",
+      "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(3).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM.jpeg",
+      "images/WhatsApp%20Image%202026-03-24%20at%203.47.33%20AM.jpeg", "images/first.jpg", "images/second.jpg", "images/fourth.jpg", "view_more"
+    ];
+    galleryImages.forEach((url, i) => {
+      const isTall = (i % 3 == 0) ? 't' : '';
+      if (url === 'view_more') {
+        gc.innerHTML += `<a href="https://www.instagram.com/the_henna.lady" target="_blank" class="g-it ${isTall}" style="background:var(--sfc); text-decoration:none; transition:0.3s; box-shadow:0 0 0 transparent;" onmouseover="this.style.boxShadow='0 10px 30px rgba(0,0,0,0.08)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 0 0 transparent'; this.style.transform='none';"><div style="display:flex; flex-direction:column; align-items:center; z-index:1;"><svg viewBox="0 0 448 512" fill="var(--gold)" style="width:40px; height:40px; position:relative; opacity:1; margin-bottom:10px;"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" /></svg><span style="font-family:var(--h); font-size:1.3rem; color:var(--crm); font-weight:600;">View More</span></div></a>`;
+      } else if (url) gc.innerHTML += `<div class="g-it ${isTall}" style="background-image:url('${url}'); background-size:cover; background-position:center;"><div class="g-hover"><div>✦ View</div></div></div>`;
+      else gc.innerHTML += `<div class="g-it ${isTall}" style="background:linear-gradient(135deg,${cols[i%4]},var(--sfc))"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke-width="2"/><path d="M50 10v80M10 50h80M20 20l60 60M20 80l60-60" stroke-width="1"/></svg><div class="g-hover"><div>✦ View</div></div></div>`;
+    });
+
+    let slIdx = 0, sls = document.querySelectorAll('.slide'), dts = document.querySelectorAll('.dot');
+    window.jumpSlide = (i) => {
+      sls[slIdx].classList.remove('act'); dts[slIdx].classList.remove('act');
+      slIdx = i;
+      sls[slIdx].classList.add('act'); dts[slIdx].classList.add('act');
+    };
+    setInterval(() => jumpSlide((slIdx + 1) % sls.length), 3000);
+
+    window.toggleMenu = () => {
+      const menu = document.getElementById('nav-lks');
+      if (window.innerWidth <= 800) {
+        menu.classList.toggle('open');
+        if (menu.classList.contains('open')) nav.classList.add('s');
+        else if (window.scrollY <= 50) nav.classList.remove('s');
+      }
+    };
+
+    // Testimonial Scroll
+    const tGrid = document.querySelector('.tst-grid');
+    if (tGrid) {
+      let tScrollInt = setInterval(() => {
+        if (tGrid.scrollLeft >= tGrid.scrollWidth - tGrid.clientWidth - 10) tGrid.scrollTo({left: 0, behavior: 'smooth'});
+        else tGrid.scrollBy({left: 330, behavior: 'smooth'});
+      }, 4000);
+      tGrid.addEventListener('mouseenter', () => clearInterval(tScrollInt));
+      tGrid.addEventListener('mouseleave', () => {
+        tScrollInt = setInterval(() => {
+          if (tGrid.scrollLeft >= tGrid.scrollWidth - tGrid.clientWidth - 10) tGrid.scrollTo({left: 0, behavior: 'smooth'});
+          else tGrid.scrollBy({left: 330, behavior: 'smooth'});
+        }, 4000);
+      });
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.classList.contains('show')) {
+          content.classList.remove('show');
+          content.style.maxHeight = null;
+        } else {
+          content.classList.add('show');
+          content.style.maxHeight = content.scrollHeight + 40 + "px";
+        }
+      });
+    });
+
+    // Custom Cursor
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+    let curX = window.innerWidth/2, curY = window.innerHeight/2, mouseX = curX, mouseY = curY;
+    window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    const loop = () => {
+      curX += (mouseX - curX) * 0.2; curY += (mouseY - curY) * 0.2;
+      cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+    
+    document.querySelectorAll('a, button, .btn, input').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hollow'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hollow'));
+    });
+  </script>
+</body>
+
+</html>
