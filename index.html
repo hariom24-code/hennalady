@@ -21,6 +21,14 @@
       --b: 'Raleway', sans-serif
     }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    img, svg, video {
+      max-width: 100%;
+    }
+
     body {
       margin: 0;
       font-family: var(--b);
@@ -597,6 +605,17 @@
     }
     @media (hover: none) and (pointer: coarse) { .custom-cursor { display: none !important; } }
 
+    /* Large Screen Responsiveness */
+    @media(min-width: 1200px) {
+      .h-txt, #abt, #srv > .grid, .why-stg, #gal > .gal, #tst > div, .faq-container, .bk-frm, #ctc > .fu {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #abt { margin: 0 auto; }
+      #tst > div, #ctc > div.fu { max-width: 1200px; margin: 0 auto; }
+    }
+
     /* Mobile Menu & Responsiveness */
     .menu-btn { display: none; background: none; border: none; color: inherit; font-size: 1.8rem; cursor: pointer; padding: 0; line-height: 1; }
     
@@ -726,11 +745,10 @@
     <div class="fu animate">
       <div style="color:var(--goldL);font-weight:600">About the Artist</div>
       <h2>Meet Rozmin Haji</h2>
-      <p>With years of experience in henna artistry, I specialize in creating detailed, long-lasting designs for brides and events.
+      <p>My journey with henna began as a teenager, rooted in tradition, creativity, and a deep love for this beautiful art form. 
+After moving to the United States, I turned that passion into a thriving business—balancing life as a devoted mother of two, a behavior therapist, and an entrepreneur. Every design I create carries not just skill, but heart, intention, and years of dedication. Henna has not only been my livelihood, but also a way to give back, as I’ve proudly supported causes like the American Cancer Society through my work. Today, I continue to share this art with my community, creating meaningful, personalized experiences that go far beyond just decoration.
 
-Clients trust me not just for beautiful designs, but for a smooth, stress-free experience — whether it’s a wedding, private session, or large event.
-
-From timely completion to personalized designs, every session is handled with care, precision, and attention to detail.</p>
+People don’t just book henna—they book the experience, the connection, and the care behind it. I bring warmth, patience, and intention to every session, creating a space where you feel relaxed, valued, and truly seen. From the first conversation to the final design, my goal is to offer more than beautiful henna—I create a meaningful, personalized experience that stays with you long after the stain fades.</p>
       <div style="display:flex;gap:30px;margin-top:30px;font-family:var(--h);font-size:1.5rem;color:var(--gold)">
         <div><span class="ctr" data-t="549">200</span>+ <br><span
             style="font-size:.9rem;font-family:var(--b);color:var(--txt);font-weight:600">⭐Clients Served</span></div>
@@ -748,8 +766,12 @@ From timely completion to personalized designs, every session is handled with ca
       
       <div class="srv-cd" style="display: flex; flex-direction: column;">
         <h3 style="font-size: 1.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; margin-bottom: 15px;">🎉 Parties & Events</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">We specialize in Mitzvahs, Sweet 16s, Quinceañeras, Yoga Retreats, Corporate Events, Destination Events, Birthdays, Graduations, Backyard Parties, Weddings, Girls' Night, Holidays, Fundraisers, and Teachers Appreciation.</p>
-        <p style="font-size: 0.95rem; font-weight: 600; color: var(--gold); margin-bottom: 20px;">✦ Perfect for groups of all sizes</p>
+        <p style="font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">We specialize in Mitzvahs, Sweet 16s, Quinceañeras, Yoga Retreats, Corporate Events, Birthdays, Graduations, Weddings, Girls' Night, Mother's Day, Valentine’s Day/Galentine’s parties, Holidays, Fundraising events, and more.</p>
+        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0;">
+          <li style="margin-bottom: 10px; font-size: 0.95rem; color: var(--txt);"><span style="color:var(--gold)">✦</span> Perfect for groups of all sizes</li>
+          <li style="margin-bottom: 10px; font-size: 0.95rem; color: var(--txt);"><span style="color:var(--gold)">✦</span> Belly blessing henna for moms-to-be</li>
+          <li style="margin-bottom: 10px; font-size: 0.95rem; color: var(--txt);"><span style="color:var(--gold)">✦</span> Beautifully crafted henna crowns</li>
+        </ul>
         <div style="margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.05);">
           <p style="font-size: 0.9rem; margin-bottom: 12px; color: var(--txt);">Individual appointments available at our home-based studio.</p>
           <a href="#ctc" class="btn fill" style="display:block; text-align:center; padding:12px; font-size:0.85rem; font-weight:700; width:100%; box-sizing:border-box; border:none; border-radius:4px; animation: sweepSweep 3s linear infinite; background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto;">BOOK NOW — LIMITED SLOTS!</a>
@@ -873,7 +895,40 @@ Definitely recommend her"
         <strong>— Khairunnisa Dhamani.</strong>
         <div class="stars">★★★★★</div>
       </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin is not only a great henna artist but such a kind human being. We hired her to do her art at my kid’s birthday party and she was a huge hit with everyone. The henna lasted a long time and the designs are beautiful. Highly recommended!!!"</p>
+        <strong>— Janette Baucham.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"We hired Rozmin to do henna art at a party, and we were so happy with her work! Her artistry was beautiful. We had other vendors and activities at the party, but Rozmin’s henna was the most popular by far. She did gorgeous designs on everyone from 4 year olds to a 76 year old, and everyone in between. I highly recommend Rozmin for henna at any kids party, adult party, bat mitzvah, wedding, bridal shower, literally any event where you want something special. Thank you Rozmin!!"</p>
+        <strong>— Kelly Moore.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"Rozmin is the absolute best in the henna biz. She did my henna at an event once and I ended up hiring her to do several parties & events: Everyone loves her and her henna! I love that it’s natural and lasts a very long time. She can do anything from fast & simple to intricate & ornate. Love the glitter henna too! Rozmin is a total professional and has such a warm energy. Great experience. 10 out of 10!"</p>
+        <strong>— Jamie G.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="tst-cd"><svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 18V10c0-5 3.7-9 9-10l1 2c-2.4 1-4 3.8-4 6h4v10H14zM0 18V10c0-5 3.7-9 9-10l1 2C7.6 3 6 5.8 6 8h4v10H0z" />
+        </svg>
+        <p>"This was my very 1st henna art experience and I loved it! I’m hooked! Especially because Rozmin is so talented & has such great energy. She is authentically kind and I can’t wait for my next session with her!"</p>
+        <strong>— Jean Cooper.</strong>
+        <div class="stars">★★★★★</div>
+      </div>
     </div>
+    <div align="center" style="margin-top:40px" class="reveal-up"><a href="https://maps.app.goo.gl/NzsxpPm53cYfGfhz9" target="_blank" class="btn">Read More</a></div>
   </section>
 
   <section id="faq" style="background:var(--sfc)">
@@ -1122,7 +1177,7 @@ Definitely recommend her"
     const galleryImages = [
       "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(4).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(2).jpeg",
       "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(3).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM.jpeg",
-      "images/WhatsApp%20Image%202026-03-24%20at%203.47.33%20AM.jpeg", "images/first.jpg", "images/second.jpg", "images/fourth.jpg", "view_more"
+      "images/WhatsApp%20Image%202026-03-24%20at%203.47.33%20AM.jpeg", "images/Mug%20Art.png", "images/bottleArt.jpeg", "images/fourth.jpg", "view_more"
     ];
     galleryImages.forEach((url, i) => {
       const isTall = (i % 3 == 0) ? 't' : '';
