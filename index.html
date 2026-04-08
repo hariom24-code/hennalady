@@ -846,6 +846,16 @@ People don’t just book henna—they book the experience, the connection, and t
         target="_blank" class="btn">Follow on Instagram</a></div>
   </section>
 
+  <section id="products" style="background:var(--sfc)">
+    <style>.g-it.no-pad::before { display: none; } .g-it.no-pad { height: auto; padding: 0; display: block; }</style>
+    <h2 align="center" class="fu animate">Hand-Painted Products</h2>
+    <div align="center" style="color:var(--txt); max-width:600px; margin:0 auto 10px; font-family:var(--b)" class="reveal-up">Custom henna-inspired artwork on candles, bottles, and more. A perfect unique gift!</div>
+    <div class="gal fu animate" style="margin-top:40px" id="p-c"></div>
+    <div align="center" style="margin-top:40px" class="reveal-up">
+      <a href="#ctc" class="btn fill" style="padding:15px 30px; font-size:1.1rem; font-weight:bold; box-shadow:0 5px 20px rgba(193,154,59,0.4); animation: sweepSweep 3s linear infinite; background: linear-gradient(120deg, var(--gold) 30%, #eac266 50%, var(--gold) 70%); background-size: 200% auto;">ORDER YOUR CUSTOM PIECE</a>
+    </div>
+  </section>
+
   <section id="tst">
     <h2 align="center" class="fu animate">What Our Clients Say</h2>
     <div style="position:relative; margin-top:40px">
@@ -1177,7 +1187,8 @@ Definitely recommend her"
     const galleryImages = [
       "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(4).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(2).jpeg",
       "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM%20(3).jpeg", "images/WhatsApp%20Image%202026-03-24%20at%203.47.32%20AM.jpeg",
-      "images/WhatsApp%20Image%202026-03-24%20at%203.47.33%20AM.jpeg", "images/Mug%20Art.png", "images/bottleArt.jpeg", "images/fourth.jpg", "view_more"
+      "images/WhatsApp%20Image%202026-03-24%20at%203.47.33%20AM.jpeg", "images/fourth.jpeg",
+      "images/3%20(2).jpeg", "images/4%20(2).jpeg", "images/5%20(2).jpeg", "images/6.jpeg", "images/7.jpeg", "images/8.jpeg", "view_more"
     ];
     galleryImages.forEach((url, i) => {
       const isTall = (i % 3 == 0) ? 't' : '';
@@ -1186,6 +1197,21 @@ Definitely recommend her"
       } else if (url) gc.innerHTML += `<div class="g-it ${isTall}" style="background-image:url('${url}'); background-size:cover; background-position:center;"><div class="g-hover"><div>✦ View</div></div></div>`;
       else gc.innerHTML += `<div class="g-it ${isTall}" style="background:linear-gradient(135deg,${cols[i%4]},var(--sfc))"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke-width="2"/><path d="M50 10v80M10 50h80M20 20l60 60M20 80l60-60" stroke-width="1"/></svg><div class="g-hover"><div>✦ View</div></div></div>`;
     });
+    
+    const pc = document.getElementById('p-c');
+    if (pc) {
+      const productImages = [
+        "images/Mug%20Art.png", 
+        "images/bottleArt.jpeg",
+        "https://picsum.photos/seed/henna1/400/500",
+        "https://picsum.photos/seed/henna2/400/600",
+        "https://picsum.photos/seed/henna3/400/400",
+        "https://picsum.photos/seed/henna4/400/450"
+      ];
+      productImages.forEach((url, i) => {
+        pc.innerHTML += `<div class="g-it no-pad"><img src="${url}" style="width:100%; display:block; border-radius:4px;"><div class="g-hover" style="border-radius:4px;"><div>✦ View</div></div></div>`;
+      });
+    }
 
     let slIdx = 0, sls = document.querySelectorAll('.slide'), dts = document.querySelectorAll('.dot');
     window.jumpSlide = (i) => {
